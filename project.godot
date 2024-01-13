@@ -11,5 +11,18 @@ config_version=5
 [application]
 
 config/name="networking_jam"
+run/main_scene="res://scenes/levels/TL_00.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=320
+window/size/viewport_height=180
+window/stretch/mode="canvas_items"
+window/per_pixel_transparency/allowed=true
+
+[rendering]
+
+2d/snap/snap_2d_transforms_to_pixel=true
+2d/snap/snap_2d_vertices_to_pixel=true
