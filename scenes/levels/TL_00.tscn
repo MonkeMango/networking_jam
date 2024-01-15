@@ -1,32 +1,138 @@
-[gd_scene load_steps=4 format=3 uid="uid://dsd76y033bbvj"]
+[gd_scene load_steps=14 format=3 uid="uid://dsd76y033bbvj"]
 
-[ext_resource type="Texture2D" uid="uid://bigmktfr666x3" path="res://icon.svg" id="1_4iyh1"]
 [ext_resource type="PackedScene" uid="uid://digl8yl245fij" path="res://scenes/player/player.tscn" id="2_2sorq"]
+[ext_resource type="Texture2D" uid="uid://de2j55mu17xqf" path="res://assets/world_assets/tilemap.png" id="2_kxn33"]
+[ext_resource type="Texture2D" uid="uid://bffipdp10i617" path="res://assets/world_assets/background.png" id="3_idrxn"]
+[ext_resource type="Texture2D" uid="uid://bdqflet0o835w" path="res://assets/world_assets/closer_tree.png" id="4_31gpw"]
+[ext_resource type="Texture2D" uid="uid://cqrso2vhmesfl" path="res://assets/world_assets/stump.png" id="5_g6epf"]
+[ext_resource type="Texture2D" uid="uid://b4jkib5cfsce2" path="res://assets/stars/HELP.png" id="6_004v5"]
+[ext_resource type="Texture2D" uid="uid://b0b0eh44s45ty" path="res://assets/player/interact/e.png" id="7_ae64y"]
+[ext_resource type="Script" path="res://scenes/levels/InteractButton.gd" id="8_b3v34"]
+[ext_resource type="AudioStream" uid="uid://1vu4qg8tyhvd" path="res://assets/music/FT00/MUS02_Star-Collector.wav" id="9_6vkxb"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kb62v"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mln5t"]
+texture = ExtResource("2_kxn33")
+texture_region_size = Vector2i(32, 32)
+2:0/0 = 0
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
+3:0/0 = 0
+3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:0/0/physics_layer_0/angular_velocity = 0.0
+2:1/0 = 0
+2:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:1/0/physics_layer_0/angular_velocity = 0.0
+3:1/0 = 0
+3:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:1/0/physics_layer_0/angular_velocity = 0.0
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_1lafb"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_mln5t")
+
+[sub_resource type="Environment" id="Environment_30ve6"]
+background_mode = 3
+glow_enabled = true
+glow_strength = 1.6
+glow_blend_mode = 0
+glow_hdr_threshold = 1.1
+adjustment_brightness = 2.34
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ksaoy"]
+size = Vector2(58, 113)
 
 [node name="TestLevel00" type="Node2D"]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(150, 170)
-scale = Vector2(16.8, 1)
-
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
-position = Vector2(0.142047, -3.8147e-06)
-scale = Vector2(0.15625, 0.15625)
-texture = ExtResource("1_4iyh1")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-shape = SubResource("RectangleShape2D_kb62v")
-
 [node name="Player" parent="." instance=ExtResource("2_2sorq")]
-position = Vector2(170, 93)
+position = Vector2(99, 139)
+collision_layer = 3
+collision_mask = 3
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-limit_left = -65
+position = Vector2(-7, 0)
+limit_left = 30
 limit_top = -375
-limit_right = 316
+limit_right = 9954815
 limit_bottom = 180
 limit_smoothed = true
 position_smoothing_enabled = true
 drag_vertical_enabled = true
+
+[node name="PlayableGround" type="Node2D" parent="."]
+
+[node name="TileMap" type="TileMap" parent="PlayableGround"]
+tile_set = SubResource("TileSet_1lafb")
+format = 2
+layer_0/tile_data = PackedInt32Array(327680, 65536, 0, 327681, 65536, 0, 327682, 65536, 0, 327683, 65536, 0, 327684, 65536, 0, 327685, 65536, 0, 327686, 65536, 0, 327687, 65536, 0, 327688, 65536, 0, 327689, 65536, 0, 327690, 65536, 0, 327691, 65536, 0, 327692, 65536, 0, 327693, 65536, 0, 327694, 65536, 0, 327695, 65536, 0, 327696, 65536, 0, 327697, 65536, 0, 327698, 65536, 0, 327699, 65536, 0, 327700, 65536, 0, 327701, 65536, 0, 327702, 65536, 0, 327703, 65536, 0, 327704, 65536, 0, 327705, 65536, 0, 327706, 65536, 0, 327707, 65536, 0, 327708, 65536, 0, 327709, 65536, 0, 327710, 65536, 0, 327711, 65536, 0, 327712, 65536, 0, 327713, 65536, 0, 327714, 65536, 0, 327715, 65536, 0, 327716, 65536, 0, 327717, 65536, 0, 327718, 65536, 0, 327719, 65536, 0, 327720, 65536, 0, 327721, 65536, 0, 327722, 65536, 0)
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="ParallaxBackground2" type="ParallaxBackground" parent="Background"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Background/ParallaxBackground2"]
+motion_scale = Vector2(0.325, 0.325)
+motion_mirroring = Vector2(400, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/ParallaxBackground2/ParallaxLayer"]
+texture = ExtResource("3_idrxn")
+centered = false
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="Background/ParallaxBackground2"]
+motion_scale = Vector2(0.62, 0.62)
+motion_mirroring = Vector2(320, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/ParallaxBackground2/ParallaxLayer2"]
+texture = ExtResource("4_31gpw")
+centered = false
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Background"]
+layer = -22
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Background/ParallaxBackground"]
+motion_scale = Vector2(0.69, 0.69)
+motion_mirroring = Vector2(320, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayer"]
+position = Vector2(67, 1)
+texture = ExtResource("5_g6epf")
+centered = false
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_30ve6")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+z_index = -1795
+position = Vector2(401, 174)
+texture = ExtResource("6_004v5")
+direction = Vector2(0, 1)
+gravity = Vector2(0, -100)
+initial_velocity_max = 50.51
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(400, 162)
+collision_layer = 2
+collision_mask = 2
+input_pickable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1, -46.5)
+shape = SubResource("RectangleShape2D_ksaoy")
+
+[node name="InteractButton" type="Sprite2D" parent="Area2D"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(0, -81)
+texture = ExtResource("7_ae64y")
+script = ExtResource("8_b3v34")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_6vkxb")
+volume_db = -16.865
+autoplay = true
+
+[connection signal="body_entered" from="Area2D" to="Player" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="Player" method="_on_area_2d_body_exited"]

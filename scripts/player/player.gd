@@ -1,9 +1,12 @@
 extends CharacterBody2D
 
 
-const SPEED = 300.0
+const SPEED = 200.0
 const JUMP_VELOCITY = -400.0
 
+var star_spawn : bool = false;
+
+var star = preload("res://scenes/stars/stars.tscn")
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -24,5 +27,29 @@ func _physics_process(delta):
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-
+	
+	var star_sprite = star.instantiate()
+	var star_pos = position
+	star_sprite.player_position = star_pos
+	if star_spawn and Input.is_action_just_pressed("interact"):
+		add_child(star_sprite)
+		
+		
 	move_and_slide()
+
+func _on_area_2d_body_entered(body):
+	if !$"../Area2D/InteractButton".modulate == Color(1, 1, 1, 1):
+		var tween = get_tree().create_tween()
+		tween.tween_property($"../Area2D/InteractButton", "modulate", Color(1, 1, 1, 1), 0.3)
+	
+	#NOTE: If there is an intergrated function for this let me know for the love of jod
+	star_spawn = true
+
+
+func _on_area_2d_body_exited(body):
+	if !$"../Area2D/InteractButton".modulate == Color(1, 1, 1, 0):
+		var tween = get_tree().create_tween()
+		tween.tween_property($"../Area2D/InteractButton", "modulate", Color(1, 1, 1, 0), 0.3)
+	
+	star_spawn = false
+
