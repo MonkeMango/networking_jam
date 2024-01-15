@@ -28,11 +28,6 @@ func _physics_process(delta):
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	
-	var star_sprite = star.instantiate()
-	var star_pos = position
-	star_sprite.player_position = star_pos
-	if star_spawn and Input.is_action_just_pressed("interact"):
-		add_child(star_sprite)
 		
 		
 	move_and_slide()

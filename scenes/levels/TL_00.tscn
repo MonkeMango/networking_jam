@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dsd76y033bbvj"]
+[gd_scene load_steps=15 format=3 uid="uid://dsd76y033bbvj"]
 
 [ext_resource type="PackedScene" uid="uid://digl8yl245fij" path="res://scenes/player/player.tscn" id="2_2sorq"]
 [ext_resource type="Texture2D" uid="uid://de2j55mu17xqf" path="res://assets/world_assets/tilemap.png" id="2_kxn33"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cqrso2vhmesfl" path="res://assets/world_assets/stump.png" id="5_g6epf"]
 [ext_resource type="Texture2D" uid="uid://b4jkib5cfsce2" path="res://assets/stars/HELP.png" id="6_004v5"]
 [ext_resource type="Texture2D" uid="uid://b0b0eh44s45ty" path="res://assets/player/interact/e.png" id="7_ae64y"]
+[ext_resource type="Script" path="res://scenes/levels/Area2D.gd" id="7_f667o"]
 [ext_resource type="Script" path="res://scenes/levels/InteractButton.gd" id="8_b3v34"]
 [ext_resource type="AudioStream" uid="uid://1vu4qg8tyhvd" path="res://assets/music/FT00/MUS02_Star-Collector.wav" id="9_6vkxb"]
 
@@ -118,6 +119,7 @@ position = Vector2(400, 162)
 collision_layer = 2
 collision_mask = 2
 input_pickable = false
+script = ExtResource("7_f667o")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(1, -46.5)

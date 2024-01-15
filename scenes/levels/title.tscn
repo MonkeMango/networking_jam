@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bgsxmmfq1rbk1"]
+
+[ext_resource type="VideoStream" path="res://assets/videos/Starfall_Intro_320x180.ogv" id="1_n23yq"]
+
+[node name="Title" type="Node2D"]
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+stream = ExtResource("1_n23yq")
