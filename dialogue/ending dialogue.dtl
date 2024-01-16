@@ -1,0 +1,91 @@
+DRAGON: Who enters my lair?
+[music path="res://assets/music/MUS03_The-Clock-is-Ticking (1).wav" fade="0.0" volume="0.0"]
+DRAGON: I can smell you approaching...
+DRAGON: You're here to try to steal my stars.
+wingsworth: Ah, an enemy!
+wingsworth: Stay back child!
+wingsworth: I shall slay the beast!
+wingsworth: With one wing tied behind my back!
+- No, wait! Maybe they can help!
+	wingsworth: I could if I were I but a fledgling.
+	wingsworth: But... I trust you.
+	wingsworth: Perhaps the beast is more
+	wingsworth: than what meets the eye.
+- Take it down!
+	wingsworth: Oho!
+	wingsworth: Back to wanting me to do all the work, eh?
+	wingsworth: I jest. but maybe...
+	wingsworth: this is no beast at all.
+	wingsworth: They might even join our cause!
+- [Say nothing]
+	wingsworth: Your slience speaks volumes
+	wingsworth: DIE, YOU B-
+	[sound path="res://assets/music/sounds/RIZZ Sound Effect [VUfvRciny_Y].mp3" volume="0.0"]
+	wingsworth: Oh wow, that is a LOT of stars.
+	wingsworth: Maybe you could convince this...
+	wingsworth: beast to see reason, and...
+	wingsworth: join our cause?
+	player: Wingsworth...
+	player: Are you saying you want to work
+	player: together?
+	wingsworth: Well... I... you see...
+	wingsworth: Forget I said anything!
+player: It's decided.
+- Dragon, the forest will die without starlight!
+	player: Will you help us restore it?
+	DRAGON: You... who *are* you?
+	DRAGON: Hmph.
+	DRAGON: You think you can save the world?
+	DRAGON: Do whatever you want,
+	DRAGON: But I'm not letting you near my stars.
+	DRAGON: The forest is doomed.
+	DRAGON: But this pile will keep me alive.
+- Dragon, the forest will die without stars.
+	DRAGON: You're mistaken if YOU think
+	DRAGON: you can take these stars from me!
+	DRAGON: Do you know what these can do?
+- They're the life force of the forest!
+	player: and we're gonna restore them!
+	player: With your help.
+	[sound path="res://assets/music/sounds/my ass seeing this stupid kid tellin me to give up the stars.mp3" volume="0.0"]
+	DRAGON: HAHAHAHAHHA
+- They definitely don't belong to you.
+	DRAGON: I'd like to see you try,
+	DRAGON: you little-
+	DRAGON: ...
+	DRAGON: Who *are* you?
+player: Tell them how we saved
+player: those stars Wingsworth!
+wingsworth: Well, a team?? I, um...
+DRAGON: Some team you have there.
+DRAGON: A lost soul
+DRAGON: and a griffon who can't swallow his pride.
+wingsworth: We ARE a team!
+wingsworth: I can assure you,
+wingsworth: If we work together...
+wingsworth: The forest can be saved.
+[signal arg="dap me up"]
+player: We're taking the same risk!
+player: What do you say?
+DRAGON: I... never thought
+DRAGON: Anyone would want to be
+DRAGON: With a monster like me.
+wingsworth: Should you agree to aid us,
+wingsworth: We will welcome you.
+DRAGON: In that case... Let's go!
+DRAGON: We did it.
+DRAGON: But the sky is missing...
+DRAGON: Something or...
+DRAGON: Someone.
+wingsworth: Indeed, I sense it too!
+wingsworth: Where could it be?
+DRAGON: It's close than you think.
+DRAGON: Where do you come from?
+player: I don't remember..
+player: There was a quake, and I woke up here.
+DRAGON: Little one, don't you feel it?
+DRAGON: You ARE the last star.
+wingsworth: I don't believe it!
+wingsworth: Before my very eyes,
+wingsworth: This whole time.
+DRAGON: Let's get this little star back, eh Wingsworth?

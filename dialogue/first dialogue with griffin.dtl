@@ -1,0 +1,53 @@
+Griffin: Stay back!
+Griffin: Did you not see?
+Griffin: The stars have fallen to the ground!
+Griffin: I've got this handled, be on your way!
+Griffin: Hand it here! This is no job for a...
+[wait time="1.0"]
+Griffin: ...what are you exactly?
+Griffin: No matter, hand it over!
+Griffin: I must fly it back to its home,
+Griffin: before it dies!
+[signal arg="GYATT"]
+[wait time="2.0"]
+Griffin: That star barely made it!
+Griffin: I would've gotten it to safety,
+Griffin: MUCH sooner if not for you.
+[signal arg="come back down mr griffin"]
+Griffin: Ah, never mind. I'm off.
+Griffin: I need to find the remaining stars.
+Griffin: The forest...
+Griffin: It won't last long without their light.
+- Wait! Is the forest in trouble?
+	Griffin: Look around you child.
+	Griffin: This planet has no sun, no moon.
+	Griffin: The quake in the sky...
+	Griffin: It has taken away the forest's
+	Griffin: only energy source\:
+	Griffin: The starlight.
+- What was that earthquake just now?
+	Griffin: That was no earthquake, child.
+	Griffin: It was a quake of the sky!
+	Griffin: A...
+	[sound path="res://assets/music/Vine Boom Sound Effect [829pvBHyG6I].mp3" volume="0.0"]
+	Griffin: skyquake!
+	Griffin: And it's taken away
+	Griffin: The forest's only energy source\:
+	Griffin: The starlight.
+If I, Wingsworth,
+wingsworth: don't travel to the sky 
+wingsworth: this great land will 
+wingsworth: be consumed by darkness!
+- I'll help you return the stars.
+	wingsworth: Help? HA!
+	wingsworth: The last thing Wingsworth needs.
+- You weren't doing so well on your own...
+	wingsworth: Nonsense!
+	wingsworth: I was doing just fine without you!
+	wingsworth: Move along now!
+	player: ...
+wingsworth: I suppose I can't stop you.
+wingsworth: Maybe you can learn a few things!
+wingsworth: But I'm off urgently, so please.
+wingsworth: Keep up if you're coming.
+[signal arg="bye bye mr wings worth"]

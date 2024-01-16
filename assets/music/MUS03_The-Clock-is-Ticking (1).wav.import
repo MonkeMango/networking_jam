@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://p88mtq6s3bai"
+path="res://.godot/imported/MUS03_The-Clock-is-Ticking (1).wav-63a9dad55d376f85d48fb9e86c58528a.sample"
+
+[deps]
+
+source_file="res://assets/music/MUS03_The-Clock-is-Ticking (1).wav"
+dest_files=["res://.godot/imported/MUS03_The-Clock-is-Ticking (1).wav-63a9dad55d376f85d48fb9e86c58528a.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bawxpll65etow"]
+
+[ext_resource type="Script" path="res://scenes/levels/credits.gd" id="1_7ltub"]
+[ext_resource type="VideoStream" path="res://assets/videos/Starfall_Outro_320x180.ogv" id="2_8trwl"]
+
+[node name="Credits" type="Node2D"]
+script = ExtResource("1_7ltub")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+stream = ExtResource("2_8trwl")
+autoplay = true
+
+[connection signal="finished" from="VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]

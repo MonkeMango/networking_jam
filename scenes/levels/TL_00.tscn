@@ -1,31 +1,26 @@
-[gd_scene load_steps=19 format=3 uid="uid://dsd76y033bbvj"]
+[gd_scene load_steps=41 format=3 uid="uid://dsd76y033bbvj"]
 
 [ext_resource type="PackedScene" uid="uid://digl8yl245fij" path="res://scenes/player/player.tscn" id="2_2sorq"]
 [ext_resource type="Script" path="res://scenes/levels/ColorRect.gd" id="2_j7nif"]
 [ext_resource type="Texture2D" uid="uid://de2j55mu17xqf" path="res://assets/world_assets/tilemap.png" id="2_kxn33"]
 [ext_resource type="Texture2D" uid="uid://bffipdp10i617" path="res://assets/world_assets/background.png" id="3_idrxn"]
+[ext_resource type="FontFile" uid="uid://clr5qhn6urbs6" path="res://assets/fonts/corset_8_basic_v1/Corset 8 Basic.ttf" id="3_unjrd"]
 [ext_resource type="Texture2D" uid="uid://bdqflet0o835w" path="res://assets/world_assets/closer_tree.png" id="4_31gpw"]
+[ext_resource type="Texture2D" uid="uid://c3epcn7wtibwc" path="res://assets/stars/star.png" id="4_ocyl2"]
+[ext_resource type="Texture2D" uid="uid://bpy87la784o0s" path="res://assets/world_assets/grass platform.png" id="5_dgslw"]
 [ext_resource type="Texture2D" uid="uid://cqrso2vhmesfl" path="res://assets/world_assets/stump.png" id="5_g6epf"]
 [ext_resource type="Texture2D" uid="uid://b4jkib5cfsce2" path="res://assets/stars/HELP.png" id="6_004v5"]
 [ext_resource type="Texture2D" uid="uid://b0b0eh44s45ty" path="res://assets/player/interact/e.png" id="7_ae64y"]
 [ext_resource type="Script" path="res://scenes/levels/Area2D.gd" id="7_f667o"]
+[ext_resource type="Texture2D" uid="uid://d4aowjmhnj18g" path="res://assets/world_assets/bottom grass tile.png" id="7_roxuc"]
 [ext_resource type="Script" path="res://scenes/levels/InteractButton.gd" id="8_b3v34"]
-[ext_resource type="AudioStream" uid="uid://1vu4qg8tyhvd" path="res://assets/music/FT00/MUS02_Star-Collector.wav" id="9_6vkxb"]
-
-[sub_resource type="Animation" id="Animation_ltsm0"]
-resource_name = "fade out"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Camera2D/CanvasLayer/ColorRect:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
-}
+[ext_resource type="Texture2D" uid="uid://cga2ok07cedym" path="res://assets/griffin/griffin anim.png" id="9_0dm13"]
+[ext_resource type="AudioStream" uid="uid://8yakveusaci5" path="res://assets/music/ambience/ENV01_Forest_Ambiance_Night.wav" id="14_5yxl1"]
+[ext_resource type="Script" path="res://scenes/levels/Area2D2.gd" id="17_uvpl5"]
+[ext_resource type="Script" path="res://scenes/levels/Area2D3.gd" id="18_6p6ai"]
+[ext_resource type="Texture2D" uid="uid://bwnqlwb5736h5" path="res://assets/griffin/DRAGOON.png" id="18_t7uc0"]
+[ext_resource type="Script" path="res://scenes/levels/StarBlock.gd" id="19_c6l8p"]
+[ext_resource type="Script" path="res://scenes/levels/Area2D4.gd" id="19_itvcv"]
 
 [sub_resource type="Animation" id="Animation_8m1nb"]
 length = 0.001
@@ -42,36 +37,76 @@ tracks/0/keys = {
 "values": [Color(0, 0, 0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_n8vxd"]
+resource_name = "fade in"
+length = 2.0335
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D/CanvasLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ltsm0"]
+resource_name = "fade out"
+length = 2.0335
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D/CanvasLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ed2o1"]
 _data = {
 "RESET": SubResource("Animation_8m1nb"),
+"fade in": SubResource("Animation_n8vxd"),
 "fade out": SubResource("Animation_ltsm0")
 }
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mln5t"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wtq4b"]
+texture = ExtResource("5_dgslw")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -6.5, 16, -7.25, 16, 16, -16, 16)
+0:0/0/physics_layer_0/polygon_0/one_way = true
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lep2b"]
 texture = ExtResource("2_kxn33")
 texture_region_size = Vector2i(32, 32)
-2:0/0 = 0
-2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-2:0/0/physics_layer_0/angular_velocity = 0.0
-3:0/0 = 0
-3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-3:0/0/physics_layer_0/angular_velocity = 0.0
-2:1/0 = 0
-2:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-2:1/0/physics_layer_0/angular_velocity = 0.0
-3:1/0 = 0
-3:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-3:1/0/physics_layer_0/angular_velocity = 0.0
 1:0/0 = 0
 1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 1:0/0/physics_layer_0/angular_velocity = 0.0
-1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 0, 16, 0.25, 16, 16, -16, 16)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hmuci"]
+texture = ExtResource("7_roxuc")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 
 [sub_resource type="TileSet" id="TileSet_1lafb"]
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_mln5t")
+sources/1 = SubResource("TileSetAtlasSource_lep2b")
+sources/0 = SubResource("TileSetAtlasSource_wtq4b")
+sources/2 = SubResource("TileSetAtlasSource_hmuci")
 
 [sub_resource type="Environment" id="Environment_30ve6"]
 background_mode = 3
@@ -81,15 +116,170 @@ glow_blend_mode = 0
 glow_hdr_threshold = 1.1
 adjustment_brightness = 2.34
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_emjww"]
+size = Vector2(32, 140)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ksaoy"]
 size = Vector2(58, 113)
 
+[sub_resource type="Animation" id="Animation_74lf4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Griffin:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(166.32, -37)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Griffin:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_b31cj"]
+resource_name = "griffin enters scene"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Griffin:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(166.32, -37), Vector2(166.32, 97)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Griffin:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
+}
+
+[sub_resource type="Animation" id="Animation_j0rjj"]
+resource_name = "griffin enters scene_2"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Griffin:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Griffin:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+
+[sub_resource type="Animation" id="Animation_lgnth"]
+resource_name = "griffin enters scene_3"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Griffin:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Griffin:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+
+[sub_resource type="Animation" id="Animation_uwk7r"]
+resource_name = "griffin exits scene"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Griffin:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(166.32, 97), Vector2(166.32, -216.105)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Griffin:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hi7nl"]
+_data = {
+"RESET": SubResource("Animation_74lf4"),
+"griffin enters scene": SubResource("Animation_b31cj"),
+"griffin enters scene_2": SubResource("Animation_j0rjj"),
+"griffin enters scene_3": SubResource("Animation_lgnth"),
+"griffin exits scene": SubResource("Animation_uwk7r")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k02f6"]
+size = Vector2(132, 265)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qi5v0"]
+size = Vector2(91, 168)
+
 [node name="TestLevel00" type="Node2D"]
 
-[node name="Player" parent="." instance=ExtResource("2_2sorq")]
-position = Vector2(99, 139)
+[node name="Player" parent="." node_paths=PackedStringArray("camera", "star_hud") instance=ExtResource("2_2sorq")]
+position = Vector2(162, 139)
 collision_layer = 3
 collision_mask = 3
+camera = NodePath("Camera2D")
+star_hud = NodePath("Camera2D/CanvasLayer/RichTextLabel")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(-7, 0)
@@ -110,7 +300,7 @@ libraries = {
 }
 
 [node name="ColorRect" type="ColorRect" parent="Player/Camera2D/CanvasLayer"]
-z_index = 2655
+z_index = 1275
 offset_left = -1.0
 offset_top = -2.0
 offset_right = 327.0
@@ -119,12 +309,24 @@ scale = Vector2(1.09508, 1.08402)
 color = Color(0, 0, 0, 0)
 script = ExtResource("2_j7nif")
 
+[node name="RichTextLabel" type="RichTextLabel" parent="Player/Camera2D/CanvasLayer"]
+offset_left = 297.0
+offset_top = 3.0
+offset_right = 337.0
+offset_bottom = 43.0
+theme_override_fonts/normal_font = ExtResource("3_unjrd")
+text = ":"
+
+[node name="Sprite2D" type="Sprite2D" parent="Player/Camera2D/CanvasLayer"]
+position = Vector2(287, 9)
+texture = ExtResource("4_ocyl2")
+
 [node name="PlayableGround" type="Node2D" parent="."]
 
 [node name="TileMap" type="TileMap" parent="PlayableGround"]
 tile_set = SubResource("TileSet_1lafb")
 format = 2
-layer_0/tile_data = PackedInt32Array(327680, 65536, 0, 327681, 65536, 0, 327682, 65536, 0, 327683, 65536, 0, 327684, 65536, 0, 327685, 65536, 0, 327686, 65536, 0, 327687, 65536, 0, 327688, 65536, 0, 327689, 65536, 0, 327690, 65536, 0, 327691, 65536, 0, 327692, 65536, 0, 327693, 65536, 0, 327694, 65536, 0, 327695, 65536, 0, 327696, 65536, 0, 327697, 65536, 0, 327698, 65536, 0, 327699, 65536, 0, 327700, 65536, 0, 327701, 65536, 0, 327702, 65536, 0, 327703, 65536, 0, 327704, 65536, 0, 327705, 65536, 0, 327706, 65536, 0, 327707, 65536, 0, 327708, 65536, 0, 327709, 65536, 0, 327710, 65536, 0, 327711, 65536, 0, 327712, 65536, 0, 327713, 65536, 0, 327714, 65536, 0, 327715, 65536, 0, 327716, 65536, 0, 327717, 65536, 0, 327718, 65536, 0, 327719, 65536, 0, 327720, 65536, 0, 327721, 65536, 0, 327722, 65536, 0)
+layer_0/tile_data = PackedInt32Array(327680, 65537, 0, 327681, 65537, 0, 327682, 65537, 0, 327683, 65537, 0, 327684, 65537, 0, 327685, 65537, 0, 327686, 65537, 0, 327687, 65537, 0, 327688, 65537, 0, 327689, 65537, 0, 327690, 65537, 0, 327691, 65537, 0, 327692, 65537, 0, 327693, 65537, 0, 327694, 65537, 0, 327695, 2, 0, 327696, 2, 0, 327697, 2, 0, 327698, 2, 0, 327699, 2, 0, 327700, 2, 0, 327701, 2, 0, 327702, 2, 0, 327703, 2, 0, 327704, 2, 0, 327705, 65537, 0, 327706, 65537, 0, 327707, 65537, 0, 327708, 65537, 0, 327709, 65537, 0, 327710, 65537, 0, 327711, 65537, 0, 327712, 65537, 0, 327713, 65537, 0, 327714, 65537, 0, 327715, 65537, 0, 327716, 65537, 0, 327717, 65537, 0, 327718, 65537, 0, 327719, 65537, 0, 327720, 65537, 0, 327721, 65537, 0, 327722, 65537, 0, 262159, 65537, 0, 262160, 65537, 0, 262161, 65537, 0, 262162, 65537, 0, 262163, 65537, 0, 262164, 65537, 0, 262165, 65537, 0, 262166, 65537, 0, 262167, 65537, 0, 262168, 65537, 0, 196627, 0, 0, 196631, 0, 0, 196638, 0, 0, 131104, 0, 0, 131107, 0, 0, 131110, 0, 0, 131114, 0, 0, 327723, 65537, 0, 327724, 65537, 0, 327725, 65537, 0, 327726, 65537, 0, 327727, 65537, 0, 327728, 65537, 0, 327729, 65537, 0, 327730, 65537, 0, 327731, 65537, 0, 327732, 65537, 0, 327733, 65537, 0, 327734, 65537, 0, 327735, 65537, 0, 327736, 65537, 0, 327737, 65537, 0, 327738, 65537, 0, 327739, 65537, 0, 327740, 65537, 0, 327741, 65537, 0, 327742, 65537, 0, 327743, 65537, 0, 327744, 65537, 0, 327745, 65537, 0)
 
 [node name="Background" type="Node2D" parent="."]
 
@@ -148,33 +350,41 @@ centered = false
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="Background"]
 layer = -22
+offset = Vector2(229.68, 0)
+transform = Transform2D(1, 0, 0, 1, 229.68, 0)
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="Background/ParallaxBackground"]
 motion_scale = Vector2(0.69, 0.69)
-motion_mirroring = Vector2(320, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayer"]
 position = Vector2(67, 1)
 texture = ExtResource("5_g6epf")
 centered = false
 
+[node name="Griffin" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayer"]
+position = Vector2(166.32, -37)
+texture = ExtResource("9_0dm13")
+flip_h = true
+hframes = 10
+frame = 1
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_30ve6")
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
-z_index = -1795
-position = Vector2(401, 174)
-texture = ExtResource("6_004v5")
-direction = Vector2(0, 1)
-gravity = Vector2(0, -100)
-initial_velocity_max = 50.51
+[node name="TutorialBlock" type="StaticBody2D" parent="."]
+position = Vector2(489, 130)
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TutorialBlock"]
+position = Vector2(6, -60)
+shape = SubResource("RectangleShape2D_emjww")
+
+[node name="Area2D" type="Area2D" parent="." node_paths=PackedStringArray("player")]
 position = Vector2(400, 162)
 collision_layer = 2
 collision_mask = 2
 input_pickable = false
 script = ExtResource("7_f667o")
+player = NodePath("../Player")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(1, -46.5)
@@ -186,10 +396,124 @@ position = Vector2(0, -81)
 texture = ExtResource("7_ae64y")
 script = ExtResource("8_b3v34")
 
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Area2D"]
+z_index = -1795
+position = Vector2(1, 12)
+texture = ExtResource("6_004v5")
+direction = Vector2(0, 1)
+gravity = Vector2(0, -100)
+initial_velocity_max = 50.51
+color = Color(2.959, 2.959, 1, 1)
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("9_6vkxb")
+stream = ExtResource("14_5yxl1")
 volume_db = -16.865
 autoplay = true
 
+[node name="CutscenePlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Background/ParallaxBackground/ParallaxLayer")
+libraries = {
+"": SubResource("AnimationLibrary_hi7nl")
+}
+
+[node name="Area2D2" type="Area2D" parent="." node_paths=PackedStringArray("player")]
+position = Vector2(753, 89)
+collision_layer = 2
+collision_mask = 2
+input_pickable = false
+script = ExtResource("17_uvpl5")
+player = NodePath("../Player")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(1, -46.5)
+shape = SubResource("RectangleShape2D_ksaoy")
+
+[node name="InteractButton" type="Sprite2D" parent="Area2D2"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(0, -74)
+texture = ExtResource("7_ae64y")
+script = ExtResource("8_b3v34")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Area2D2"]
+z_index = -1795
+position = Vector2(1, 12)
+texture = ExtResource("6_004v5")
+direction = Vector2(0, 1)
+gravity = Vector2(0, -100)
+initial_velocity_max = 50.51
+color = Color(2.959, 2.959, 1, 1)
+
+[node name="Area2D3" type="Area2D" parent="." node_paths=PackedStringArray("player")]
+position = Vector2(1357, 55)
+collision_layer = 2
+collision_mask = 2
+input_pickable = false
+script = ExtResource("18_6p6ai")
+player = NodePath("../Player")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3"]
+position = Vector2(1, -46.5)
+shape = SubResource("RectangleShape2D_ksaoy")
+
+[node name="InteractButton" type="Sprite2D" parent="Area2D3"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(0, -74)
+texture = ExtResource("7_ae64y")
+script = ExtResource("8_b3v34")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Area2D3"]
+z_index = -1795
+position = Vector2(1, 12)
+texture = ExtResource("6_004v5")
+direction = Vector2(0, 1)
+gravity = Vector2(0, -100)
+initial_velocity_max = 50.51
+color = Color(2.959, 2.959, 1, 1)
+
+[node name="StarBlock" type="StaticBody2D" parent="." node_paths=PackedStringArray("player")]
+position = Vector2(1497, 180)
+script = ExtResource("19_c6l8p")
+player = NodePath("../Player")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StarBlock"]
+position = Vector2(56, -122.5)
+shape = SubResource("RectangleShape2D_k02f6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1990, 125)
+texture = ExtResource("18_t7uc0")
+flip_h = true
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Sprite2D"]
+z_index = -1795
+position = Vector2(76, 49)
+texture = ExtResource("6_004v5")
+direction = Vector2(0, 1)
+gravity = Vector2(0, -100)
+initial_velocity_max = 50.51
+color = Color(2.959, 2.959, 1, 1)
+
+[node name="Griffin" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(-200, 19)
+texture = ExtResource("9_0dm13")
+hframes = 10
+frame = 1
+
+[node name="Area2D4" type="Area2D" parent="." node_paths=PackedStringArray("player")]
+script = ExtResource("19_itvcv")
+player = NodePath("../Player")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D4"]
+position = Vector2(1704.5, 86)
+shape = SubResource("RectangleShape2D_qi5v0")
+
+[connection signal="animation_finished" from="Player/Camera2D/CanvasLayer/AnimationPlayer" to="Player" method="_on_animation_player_animation_finished"]
 [connection signal="body_entered" from="Area2D" to="Player" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="Player" method="_on_area_2d_body_exited"]
+[connection signal="animation_finished" from="CutscenePlayer" to="Player" method="_on_cutscene_player_animation_finished"]
+[connection signal="animation_started" from="CutscenePlayer" to="Player" method="_on_cutscene_player_animation_started"]
+[connection signal="body_entered" from="Area2D2" to="Player" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D2" to="Player" method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="Area2D3" to="Player" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D3" to="Player" method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="Area2D4" to="Player" method="_on_area_2d_4_body_entered"]

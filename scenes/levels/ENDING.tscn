@@ -1,0 +1,93 @@
+[gd_scene load_steps=8 format=3 uid="uid://kouuwdpejhne"]
+
+[ext_resource type="Texture2D" uid="uid://bnkxgl6j3npub" path="res://assets/stills/still 1.png" id="1_8p55d"]
+[ext_resource type="Script" path="res://scenes/levels/ENDING.gd" id="1_ipf2r"]
+[ext_resource type="Texture2D" uid="uid://ba1atxbk54pdi" path="res://assets/stills/still 2.png" id="2_5sumo"]
+
+[sub_resource type="Animation" id="Animation_yoa1j"]
+resource_name = "FADE OUT"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_1wmhc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_tlopn"]
+resource_name = "transition pictures"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4t82e"]
+_data = {
+"FADE OUT": SubResource("Animation_yoa1j"),
+"RESET": SubResource("Animation_1wmhc"),
+"transition pictures": SubResource("Animation_tlopn")
+}
+
+[node name="Ending" type="Node2D"]
+script = ExtResource("1_ipf2r")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_8p55d")
+centered = false
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+z_index = -1
+texture = ExtResource("2_5sumo")
+centered = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_4t82e")
+}
+autoplay = "FADE OUT"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -9.0
+offset_right = 326.0
+offset_bottom = 181.0
+color = Color(0, 0, 0, 1)
